@@ -1,0 +1,157 @@
+h1,
+h2 {
+  font-family: "Molengo", sans-serif;
+  font-size: 46px;
+  padding: 0px;
+  margin: 0;
+  color: navy;
+}
+
+h1 {
+  font-size: 106px;
+}
+
+h2 {
+  font-size: 46px;
+}
+
+p {
+  font-family: "Molengo", sans-serif;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  width: 75%;
+  margin: 20px auto;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container {
+  padding: 0px 20px 10px 20px;
+  background-color: rgb(203, 236, 255);
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(0, 0, 0, 0.2);
+}
+
+#mainCity {
+  position: relative;
+  top: 20px;
+  left: 18px;
+}
+
+#mainTempText {
+  position: relative;
+  top: -5px;
+}
+
+.units {
+  font-size: 20px;
+  position: relative;
+  top: -40px;
+  left: -20px;
+  text-decoration: none;
+  color: rgb(170, 169, 233);
+}
+
+.search {
+  position: relative;
+  float: right;
+  padding-top: 30px;
+  padding-right: 20px;
+}
+
+.currentLocation {
+  float: right;
+  position: relative;
+  padding-right: 20px;
+  padding-top: 5px;
+}
+
+#currentLocation {
+  display: inline;
+  background-color: transparent;
+  border: transparent;
+}
+
+.searchCity {
+  width: 400px;
+  margin: 0 auto;
+  padding: 15px 0px 15px 10px;
+  margin: 0;
+}
+
+input::placeholder {
+  font-size: 1.2em;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.submit {
+  padding: 15px 50px;
+}
+
+.country {
+  padding-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 0px;
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+.card {
+  padding: 20px 20px 0px 20px;
+  margin: 5px;
+  background-color: rgb(248, 248, 240);
+  border-radius: 10px;
+  width: 220px;
+}
+
+.card:hover {
+  background-color: lightyellow;
+}
+
+.iconSun,
+.iconWind {
+  font-size: 76px;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.iconSun {
+  color: rgb(255, 204, 36);
+}
+
+.iconWind {
+  color: rgb(82, 126, 255);
+}
+
+.day {
+  text-align: center;
+}
+
+.card-text {
+  font-size: 56px;
+  text-align: center;
+}
+
+.rain {
+  display: inline;
+}
+
+.wind {
+  display: inline;
+  float: right;
+}
+
+.author {
+  text-align: center;
+}
