@@ -155,3 +155,7 @@ input::placeholder {
 .author {
   text-align: center;
 }
+
+.openSourceCodeLink {
+  font-size: 12px;
+}
