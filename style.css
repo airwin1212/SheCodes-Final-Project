@@ -54,13 +54,13 @@ a {
 
 #mainTempText {
   position: relative;
-  top: -5px;
+  top: 5px;
 }
 
 .units {
   font-size: 20px;
   position: relative;
-  top: -40px;
+  top: -30px;
   left: -20px;
   text-decoration: none;
   color: rgb(170, 169, 233);
@@ -105,8 +105,9 @@ input::placeholder {
 }
 
 .country {
+  display: block;
   font-size: 16px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   position: relative;
   top: 20px;
   left: 20px;
@@ -117,6 +118,18 @@ input::placeholder {
   margin: 0;
   padding: 0;
   line-height: 0.5;
+}
+
+#todayDescription {
+  position: relative;
+  top: -20px;
+  left: 15px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 0em;
+  color: navy;
+  font-weight: bolder;
 }
 
 .card {
