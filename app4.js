@@ -35,7 +35,24 @@ let minute = now.getMinutes();
 let dateToday = document.querySelector("#dateHere");
 dateToday.innerHTML = `${days[now.getDay()]} ${date} ${months[now.getMonth()]} ${year}, ${hour}:${minute}`;
 
+let dayTwo = document.querySelector("#dayTwo");
+dayTwo.innerHTML = `${days[now.getDay() +1]}`;
+
+let dayThree = document.querySelector("#dayThree");
+dayThree.innerHTML = `${days[now.getDay() +2]}`;
+
+let dayFour = document.querySelector("#dayFour");
+dayFour.innerHTML = `${days[now.getDay() +3]}`;
+
+let dayFive = document.querySelector("#dayFive");
+dayFive.innerHTML = `${days[now.getDay() + 4]}`;
+
+let daySix = document.querySelector("#daySix");
+daySix.innerHTML = `${days[now.getDay() + 5]}`;
+
+
 function cityTypedTemp(response) {
+        celsuisTemperature = response.data.main.temp;
         let outputTemp = Math.round(response.data.main.temp);
         console.log(outputTemp);
         let grabTemp = document.querySelector("#mainTempText");
@@ -71,12 +88,18 @@ function retrievePosition(event) {
 }
 
 function cityTypedTemp(response) {
-        let outputTemp = Math.round(response.data.main.temp);
+        celsuisTemperature = response.data.main.temp;
+        let outputTemp = Math.round(celsuisTemperature);
         console.log(outputTemp);
         let grabTemp = document.querySelector("#mainTempText");
         grabTemp.innerHTML = (outputTemp);
         let mainCity = document.querySelector("#mainCity");
         mainCity.innerHTML = (`${response.data.name}`); 
+        let mainHumid = document.querySelector("#todayHumid");
+        mainHumid.innerHTML = (`${response.data.main.humidity}%`);
+        let mainWind = document.querySelector("#todayWind");
+        let mainWindRound = Math.round(response.data.wind.speed);
+        mainWind.innerHTML = (`${mainWindRound}mph`);
     }    
 
 function searchCity(city) {
@@ -91,22 +114,23 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-
 function celciusConversion(event) {
     event.preventDefault();
     let mainTempSelect= document.querySelector("#mainTempText");
-    mainTempSelect.innerHTML = (`20`);
+    mainTempSelect.innerHTML = Math.round(celsuisTemperature);
 }
 
  function fahrenheitConversion(event) {
     event.preventDefault();
     let mainTempSelect= document.querySelector("#mainTempText");
-    mainTempSelect.innerHTML = (`68`);
+    let fahrenheit = (celsuisTemperature * 9) / 5 + 32;
+    mainTempSelect.innerHTML = Math.round(fahrenheit);
 }
 
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", fahrenheitConversion);
 
+let celsuisTemperature = null;
 
 let form = document.querySelector("#formInput");
 form.addEventListener("submit", searchInput);

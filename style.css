@@ -15,6 +15,11 @@ h2 {
   font-size: 46px;
 }
 
+h6 {
+  font-size: 12px;
+  padding-top: 0px;
+}
+
 p {
   font-family: "Molengo", sans-serif;
   color: navy;
@@ -150,6 +155,16 @@ input::placeholder {
 .wind {
   display: inline;
   float: right;
+}
+
+.todayHumid {
+  display: inline;
+  padding-top: 0px;
+}
+
+.todayWind {
+  display: inline;
+  padding-top: 0px;
 }
 
 .author {
