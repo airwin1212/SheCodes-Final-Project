@@ -111,6 +111,16 @@ function cityTypedTemp(response) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     description.innerHTML = capitalizeFirstLetter(`${response.data.weather[0].description}`);
+    let emoji = document.querySelector("#mainEmoji");
+
+    if (response.data.weather[0].description.includes(`cloud`)) {
+        emoji.innerHTML = (`☁`);
+    } else if (response.data.weather[0].description.includes(`rain`)) {
+        emoji.innerHTML = (`🌧`);
+    } else {
+        emoji.innerHTML = (`☀`);
+    }
+
 }
 
 function searchCity(city) {
