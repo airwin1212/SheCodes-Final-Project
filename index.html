@@ -23,17 +23,20 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <h2>
-                    <span id="mainCity">
-
-                    </span>
+                <div>
+                    <h2><span id="mainCity"></span></h2><br />
                     <span class="country">
-                        <p>England</p>
-                        <p id="dateHere">Date</p>
+                        <p class="details">England</p>
+                        <p class="details" id="dateHere">Date</p><br />
+                        <p class="details">Humidity: <span class="todayHumid" id="todayHumid">14%</span></p>
+                        <p class="details">Wind: <span class="todayWind" id="todayWind">8mph</span></p>
                     </span>
-                </h2>
+                </div>
             </div>
-            <div class="col-3">
+            <div class="col-4">
+                <h1>
+                    <span id="mainEmoji">🌧</span>
+                </h1>
                 <h1>
                     <strong id="mainTempText"></strong>
                     <span class="units">
@@ -42,10 +45,8 @@
                         <a href="#" id="fahrenheit-link">°F</a>
                     </span>
                 </h1>
-                <p class="card-link todayHumid" id="todayHumid">14%</p>
-                <p class="card-link todayWind" id="todayWind">💨8mph</p>
             </div>
-            <div class="col-6">
+            <div class="col-5">
                 <form id="formInput" class="search">
                     <input id="searchBarInput" type="text" class="searchCity" placeholder="Search a city..." />
                     <input type="submit" class="submit" value="🔍">

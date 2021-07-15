@@ -33,7 +33,11 @@ let hour = now.getHours();
 let minute = now.getMinutes();
 
 let dateToday = document.querySelector("#dateHere");
+if (minute < 10) {
+dateToday.innerHTML = `${days[now.getDay()]} ${date} ${months[now.getMonth()]} ${year}, ${hour}:0${minute}`;
+} else {
 dateToday.innerHTML = `${days[now.getDay()]} ${date} ${months[now.getMonth()]} ${year}, ${hour}:${minute}`;
+}
 
 let dayTwo = document.querySelector("#dayTwo");
 dayTwo.innerHTML = `${days[now.getDay() +1]}`;

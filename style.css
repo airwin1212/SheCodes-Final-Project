@@ -1,5 +1,6 @@
 h1,
 h2 {
+  display: inline;
   font-family: "Molengo", sans-serif;
   font-size: 46px;
   padding: 0px;
@@ -86,7 +87,7 @@ a {
 }
 
 .searchCity {
-  width: 400px;
+  width: 350px;
   margin: 0 auto;
   padding: 15px 0px 15px 10px;
   margin: 0;
@@ -104,12 +105,18 @@ input::placeholder {
 }
 
 .country {
-  padding-bottom: 10px;
   font-size: 16px;
   margin-bottom: 0px;
   position: relative;
   top: 20px;
   left: 20px;
+}
+
+.details {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  line-height: 0.5;
 }
 
 .card {
@@ -158,13 +165,17 @@ input::placeholder {
 }
 
 .todayHumid {
-  display: inline;
-  padding-top: 0px;
+  margin: 0;
+  padding: 0px;
 }
 
 .todayWind {
-  display: inline;
+  margin: 0;
   padding-top: 0px;
+}
+
+.extras {
+  display: inline;
 }
 
 .author {
