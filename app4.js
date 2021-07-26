@@ -2,13 +2,13 @@ let now = new Date();
 console.log(now);
 
 let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
-    "Sunday"
+    "Saturday"
 ];
 
 let months = [
@@ -39,21 +39,11 @@ if (minute < 10) {
     dateToday.innerHTML = `${days[now.getDay()]} ${date} ${months[now.getMonth()]} ${year}, ${hour}:${minute}`;
 }
 
-let dayTwo = document.querySelector("#dayTwo");
-dayTwo.innerHTML = `${days[now.getDay() + 1]}`;
-
-let dayThree = document.querySelector("#dayThree");
-dayThree.innerHTML = `${days[now.getDay() + 2]}`;
-
-let dayFour = document.querySelector("#dayFour");
-dayFour.innerHTML = `${days[now.getDay() + 3]}`;
-
-let dayFive = document.querySelector("#dayFive");
-dayFive.innerHTML = `${days[now.getDay() + 4]}`;
-
-let daySix = document.querySelector("#daySix");
-daySix.innerHTML = `${days[now.getDay() + 5]}`;
-
+function searchCity(city) {
+    let apiKey = "0e9c33a5edf6a3e6f1314bec94912851";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(cityTypedTemp);
+}
 
 function cityTypedTemp(response) {
     celsuisTemperature = response.data.main.temp;
@@ -82,19 +72,19 @@ currentLocationClick.addEventListener("click", retrievePosition);
 
 function retrievePosition(event) {
     navigator.geolocation.getCurrentPosition(getLocation);
-    function getLocation(position) {
+    function getLocation(position) {  
+        console.log(position);
         let apiKey = `0e9c33a5edf6a3e6f1314bec94912851`;
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
         axios.get(url).then(cityTypedTemp);
-    }
-}
+    } }
+
 
 function cityTypedTemp(response) {
     celsuisTemperature = response.data.main.temp;
     let outputTemp = Math.round(celsuisTemperature);
-    console.log(outputTemp);
     let grabTemp = document.querySelector("#mainTempText");
     grabTemp.innerHTML = (outputTemp);
     let mainCity = document.querySelector("#mainCity");
@@ -120,13 +110,52 @@ function cityTypedTemp(response) {
     } else {
         emoji.innerHTML = (`☀`);
     }
-
+  forecastAPI(response.data.coord);
 }
 
-function searchCity(city) {
+function forecastAPI(coordinates) {
+    console.log(coordinates);
     let apiKey = "0e9c33a5edf6a3e6f1314bec94912851";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(cityTypedTemp);
+    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(forecastApiUrl).then(displayForecast);
+}
+
+
+function displayForecast(response) {
+console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `<div class="row">`;
+
+  response.data.daily.forEach(function (forecastDay, index) {
+    if (index < 5) 
+    forecastHTML =
+      forecastHTML 
+      +
+      `<div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted day" id="dayTwo">${formatDay(forecastDay.dt)}</h6>
+                <h5 class="card-title day iconSun" id="dailyEmoji"><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="100" /></h5>
+                <p class="card-text">${Math.round(forecastDay.temp.day)}°C</p>
+                <p class="card-link rain">🌫️${Math.round(forecastDay.humidity)}%</p>
+                <p class="card-link wind">💨${Math.round(forecastDay.wind_speed)}mph</p>
+            </div>
+        </div>
+    </div>`;
+    
+});
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  return days[day];
 }
 
 function handleSubmit(event) {
@@ -148,8 +177,6 @@ function fahrenheitConversion(event) {
     mainTempSelect.innerHTML = Math.round(fahrenheit);
 }
 
-let fahrenheit = document.querySelector("#fahrenheit-link");
-fahrenheit.addEventListener("click", fahrenheitConversion);
 
 let celsuisTemperature = null;
 
@@ -157,8 +184,10 @@ let form = document.querySelector("#formInput");
 form.addEventListener("submit", searchInput);
 
 
-let celsius = document.querySelector("#celsius-link");
-celsius.addEventListener("click", celciusConversion)
+
+
 
 
 searchCity("Milton Keynes");
+
+displayForecast();

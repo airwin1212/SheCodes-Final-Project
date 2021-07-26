@@ -13,7 +13,6 @@
     <link href="style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7fed648005.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 </head>
 <style>
 
@@ -25,10 +24,10 @@
             <div class="col-3">
                 <h2><span id="mainCity"></span></h2><br />
                 <span class="country">
-                    <p class="details" id="country">England</p> <br />
+                    <p class="details" id="country">England</p><br />
                     <p class="details" id="dateHere">Date</p><br />
-                    <p class="details">Humidity: <span class="todayHumid" id="todayHumid">14%</span></p>
-                    <p class="details">Wind: <span class="todayWind" id="todayWind">8mph</span></p><br />
+                    <p class="details">🌫️Humidity: <span class="todayHumid" id="todayHumid">14%</span></p>
+                    <p class="details">💨Wind: <span class="todayWind" id="todayWind">8mph</span></p>
                 </span>
             </div>
             <div class="col-1">
@@ -44,11 +43,7 @@
             <div class="col-3">
                 <h1>
                     <strong id="mainTempText"></strong>
-                    <span class="units">
-                        <a href="#" id="celsius-link">°C</a>
-                        |
-                        <a href="#" id="fahrenheit-link">°F</a>
-                    </span>
+                    <span class="units">°C</span>
                 </h1>
             </div>
             <div class="col-5">
@@ -61,64 +56,7 @@
                 </p>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted day" id="dayTwo">Monday</h6>
-                        <h5 class="card-title iconSun"><i class="fas fa-sun"></i></h5>
-                        <p class="card-text">21°C</p>
-                        <p class="card-link rain">🌧14%</p>
-                        <p class="card-link wind">8mph</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted day" id="dayThree">Tuesday</h6>
-                        <h5 class="card-title iconWind"><i class="fas fa-wind"></i></h5>
-                        <p class="card-text">17°C</p>
-                        <p class="card-link rain">🌧5%</p>
-                        <p class="card-link wind">6mph</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted day" id="dayFour">Wednesday</h6>
-                        <h5 class="card-title iconSun"><i class="fas fa-sun"></i></h5>
-                        <p class="card-text">23°C</p>
-                        <p class="card-link rain">🌧12%</p>
-                        <p class="card-link wind">5mph</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted day" id="dayFive">Thursday</h6>
-                        <h5 class="card-title iconSun"><i class="fas fa-sun"></i></i></h5>
-                        <p class="card-text">20°C</p>
-                        <p class="card-link rain">🌧19%</p>
-                        <p class="card-link wind">9mph</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted day" id="daySix">Friday</h6>
-                        <h5 class="card-title iconWind"><i class="fas fa-wind"></i></h5>
-                        <p class="card-text">19°C</p>
-                        <p class="card-link rain">🌧25%</p>
-                        <p class="card-link wind">11mph</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="forecast"></div>
         <hr />
         <p class="author">Coded by Anna Irwin
             <br />
